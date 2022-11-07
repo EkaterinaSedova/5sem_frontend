@@ -1,23 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
+
+  const handleClick = (e) => {
+    const log = e.target.login.value;
+    const pass = e.target.password.value;
+    // eslint-disable-next-line no-useless-concat
+    alert("login: " +log + "\n" + "password: " +pass)
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div align="center" justify="center"className="container">
+      <form onSubmit={handleClick}>
+      Login:
+      <input type="text" name="login" placeholder="Login"></input>
+      <p>Password: 
+        <input type="text" name="password" placeholder="Password"></input>
+      </p>
+      <p>'
+        <button onClick={handleClick}>Log in</button>
+      </p>
+      </form>
     </div>
   );
 }
